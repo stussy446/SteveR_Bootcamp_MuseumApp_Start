@@ -362,7 +362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.089, y: 60.428}
+  m_AnchoredPosition: {x: 1.0890007, y: 60.428}
   m_SizeDelta: {x: 197.823, y: 23.145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &789665055
@@ -1121,6 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loginButton: {fileID: 800537076}
+  deleteButton: {fileID: 2138243680}
   username: {fileID: 1465556838}
   attractionEntriesParent: {fileID: 1095499043}
   attractionPrefab: {fileID: 4757209673584562194, guid: 6ca7655d286ecfd4fa9fb3f5c7c1e4d6,
@@ -1582,7 +1583,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2138243683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293178101}
+        m_TargetAssemblyTypeName: MuseumApp.HomeScreen, Assembly-CSharp
+        m_MethodName: DeleteUserRecords
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2138243683
 MonoBehaviour:
   m_ObjectHideFlags: 0

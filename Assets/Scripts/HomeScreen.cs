@@ -8,6 +8,7 @@ namespace MuseumApp
     public class HomeScreen : MonoBehaviour
     {
         public GameObject loginButton;
+        public GameObject deleteButton;
         public TMP_Text username;
 
         public RectTransform attractionEntriesParent;
@@ -52,19 +53,24 @@ namespace MuseumApp
 
         private void SetupUsername()
         {
-            // TODO
             if (!User.IsLoggedIn)
             {
                 loginButton.SetActive(true);
                 username.gameObject.SetActive(false);
+                deleteButton.SetActive(false);
                 return;
             }
 
             loginButton.SetActive(false);
+            deleteButton.SetActive(true);
             username.gameObject.SetActive(true);
 
-            // username.text = <NAME>;
             username.text = User.LoggedInUsername;
+        }
+
+        public void DeleteUserRecords()
+        {
+            Debug.Log("you are deleted yo");
         }
     }
 }
