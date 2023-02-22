@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace MuseumApp
     {
         public GameObject loginButton;
         public GameObject deleteButton;
+        public TMP_Text deleteText;
         public TMP_Text username;
 
         public RectTransform attractionEntriesParent;
@@ -75,13 +77,25 @@ namespace MuseumApp
         public void DeleteUserRecords()
         {
             string currentUsername = User.LoggedInUsername;
-            
+            deleteText.text = "Deleting records...";
             Debug.Log($"deleting {currentUsername} and their records...");
+
+            StartCoroutine(StartDeletion(currentUsername));
+        }
+
+        public IEnumerator StartDeletion(string currentUsername)
+        {
+            yield return new WaitForSeconds(1f);
             Database.DeleteUserRatings(currentUsername);
             Debug.Log("Deletion complete, logging off...");
             User.LogOff();
+
             Database.DeleteUser(currentUsername);
+            deleteText.text = "Deletion Complete";
+
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("SignupPopup", LoadSceneMode.Additive);
+            deleteText.text = "Delete User Records";
         }
     }
 }
