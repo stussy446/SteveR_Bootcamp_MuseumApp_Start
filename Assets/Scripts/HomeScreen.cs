@@ -70,7 +70,13 @@ namespace MuseumApp
 
         public void DeleteUserRecords()
         {
-            Debug.Log("you are deleted yo");
+            string currentUsername = User.LoggedInUsername;
+            
+            Debug.Log($"deleting {currentUsername} and their records...");
+            Database.DeleteUserRatings(currentUsername);
+            Debug.Log("Deletion complete, logging off...");
+            User.LogOff();
+            Database.DeleteUser(currentUsername);
         }
     }
 }

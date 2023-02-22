@@ -95,18 +95,18 @@ public static class Database
 
     public static void DeleteUser(string username)
     {
-        connection.Delete(username);
+        connection.Delete<User>(username);
     }
 
     public static void DeleteUserRatings(string username)
     {
         var results = connection.Execute(
             $@"DELETE FROM {nameof(UserRating)} WHERE
-            {nameof(UserRating.Username)} = '{username}
+            {nameof(UserRating.Username)} = '{username}'
             "
             );
 
-        Debug.Assert(results >= 1, $"{username} has no ratings or query did not delete as expected");
+        Debug.Log($"{username} returned with {results} deleted rows.");
     }
 
 
