@@ -73,8 +73,8 @@ namespace MuseumApp
             // StarsRatingLib.SetupStars
             StarsRatingLib.SetUpStars(stars, attractionConfig.id);
 
-            weatherIconImage.gameObject.SetActive(false);
-            StartCoroutine(SetWeatherIcon());
+            //weatherIconImage.gameObject.SetActive(false);
+            //StartCoroutine(SetWeatherIcon());
         }
 
         private void SetupCover()

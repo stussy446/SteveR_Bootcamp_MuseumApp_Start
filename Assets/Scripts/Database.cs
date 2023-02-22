@@ -93,11 +93,20 @@ public static class Database
         connection.DeleteAll<UserRating>();
     }
 
+    /// <summary>
+    /// If username matches a user in the data base, deletes all data from that user in
+    /// the User table 
+    /// </summary>
+    /// <param name="username">string</param>
     public static void DeleteUser(string username)
     {
         connection.Delete<User>(username);
     }
 
+    /// <summary>
+    /// Deletes all UserRatings from UserRatings table that are associated with the provided username
+    /// </summary>
+    /// <param name="username">string</param>
     public static void DeleteUserRatings(string username)
     {
         var results = connection.Execute(

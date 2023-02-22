@@ -68,6 +68,10 @@ namespace MuseumApp
             username.text = User.LoggedInUsername;
         }
 
+        /// <summary>
+        /// Deletes current User from Usertable and all of their AttractionRating records,
+        /// also logs off from the current session and reopens signup page
+        /// </summary>
         public void DeleteUserRecords()
         {
             string currentUsername = User.LoggedInUsername;
@@ -77,6 +81,7 @@ namespace MuseumApp
             Debug.Log("Deletion complete, logging off...");
             User.LogOff();
             Database.DeleteUser(currentUsername);
+            SceneManager.LoadScene("SignupPopup", LoadSceneMode.Additive);
         }
     }
 }
