@@ -32,7 +32,8 @@ namespace MuseumApp
             if (!usernameValid || !passwordValid)
                 return;
 
-            // TODO: Register player
+            // Register player
+            Database.RegisterPlayer(usernameInput.text, passwordInput.text);
 
             Login();
             ClosePopup();
@@ -40,7 +41,7 @@ namespace MuseumApp
 
         public void OnLoginClicked()
         {
-            // TODO: Check credentials
+            // Check credentials
             var user = Database.GetUser(usernameInput.text);
             if (user == null)
             {
@@ -54,6 +55,7 @@ namespace MuseumApp
             }
             else
             {
+
                 Login();
                 ClosePopup();
             }

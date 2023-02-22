@@ -45,10 +45,17 @@ namespace MuseumApp
 
         public void OnClickStar(int index)
         {
-            // TODO: Check if user is logged in
-            // TODO: Create save user rating
+            // Check if user is logged in
+            if (!User.IsLoggedIn)
+            {
+                return;
+            }
+            // Create save user rating
+            var attractionID = attractionConfig.id;
 
-            StarsRatingLib.SetupStars(stars, index, true);
+            Database.Rate(attractionID, index);
+
+            StarsRatingLib.SetUpStars(stars, attractionID);
         }
 
         private void Start()
@@ -63,7 +70,8 @@ namespace MuseumApp
 
             SetupCover();
 
-            // TODO: StarsRatingLib.SetupStars
+            // StarsRatingLib.SetupStars
+            StarsRatingLib.SetUpStars(stars, attractionConfig.id);
 
             weatherIconImage.gameObject.SetActive(false);
             StartCoroutine(SetWeatherIcon());
@@ -88,7 +96,7 @@ namespace MuseumApp
 
             if (webRequest.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("weathe request network error!");
+                Debug.LogError("weather request network error!");
                 yield break;
             }
 
