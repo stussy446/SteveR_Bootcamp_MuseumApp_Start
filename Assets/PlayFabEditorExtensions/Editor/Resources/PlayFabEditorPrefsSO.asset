@@ -15,10 +15,10 @@ MonoBehaviour:
   DevAccountEmail: steverector27@gmail.com
   DevAccountToken: zqenyomtfsb4abp8htdxz5ch87qcnhjdz6q8bjcmyaih741gstc43jk48e5sw5ouwpm85x6fnsthsrzqqdibxgibwtaxqu5qi6h9ifzcey7pnsk3kjtbhb1j6ehcaqn5g6xt1py49gngzapgimhc65yhkw8orwsxge43finuf969ss9k8r7dd8pinq6fz5sd9497ds9a
   AadAuthorization: 
-  SelectedStudio: 
+  SelectedStudio: RogueCave
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 0
-  curSubMenuIdx: 0
+  curMainMenuIdx: 1
+  curSubMenuIdx: 1
